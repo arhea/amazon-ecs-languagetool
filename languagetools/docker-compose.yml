@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  redis:
+    image: redis:6
+    restart: always
+
+  languagetool:
+    build: .
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      REDIS_HOST: redis:6379
